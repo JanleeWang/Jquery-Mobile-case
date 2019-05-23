@@ -8,7 +8,11 @@
     <script src="jquery.js"></script>
     <script src="jquery.mobile-1.4.5.min.js"></script>
     <style media="screen">
-       
+       .footer{
+         position:fixed;
+         bottom:0;
+         left: 0;  
+      }
     </style>
   </head>
   <body>
@@ -21,10 +25,12 @@
       <div data-role="main" class="ui-content" id="main">
         <p>hello,mobile! 1</p>
       </div>
-      <div data-role="footer" class="ui-content">
+      <div data-role="footer" class="ui-content" class="footer">
         <a href="#pageone" data-transition='slide'>1</a>
         <a href="#pagetwo" data-transition='slide'>2</a>
         <a href="#pagethr" data-transition='slide'>3</a>
+        <a href="#" data-rel="back">back</a>
+        <a href="#mypanel">cebianlan</a>
       </div>
     </div>
 
@@ -36,7 +42,7 @@
       <div data-role="main" class="ui-content" id="main">
         <p>hello,mobile! 2</p>
       </div>
-      <div data-role="footer" class="ui-content">
+      <div data-role="footer" class="ui-content" class="footer">
         <a href="#pageone" data-transition='slide' data-direction="reverse">1</a>
         <a href="#pagetwo" data-transition='slide'>2</a>
         <a href="#pagethr" data-transition='slide'>3</a>
@@ -57,10 +63,12 @@
       <div data-role="main" class="ui-content" id="main">
         <p>hello,mobile! 3</p>
       </div>
-      <div data-role="footer" class="ui-content">
+      <div data-role="footer" class="ui-content" class="footer">
         <a href="#pageone" data-transition='slide' data-direction="reverse">1</a>
         <a href="#pagetwo" data-transition='slide' data-direction="reverse">2</a>
         <a href="#pagethr" data-transition='slide'>3</a>
+        <a href="#" data-rel="back">back</a>
+        <a href="#mypanel">cebianlan</a>
       </div>
     </div>
 
