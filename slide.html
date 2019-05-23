@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style media="screen">
+        #main{
+          height: 600px;
+        }
+    </style>
+  </head>
+  <body>
+
+    <div data-role="page" id="pageone" class="page">
+
+      <div data-role="header">
+        <h1>header</h1>
+      </div>
+      <div data-role="main" class="ui-content" id="main">
+        <p>hello,mobile! 1</p>
+      </div>
+      <div data-role="footer" class="ui-content">
+        <a href="#pageone" data-transition='slide'>1</a>
+        <a href="#pagetwo" data-transition='slide'>2</a>
+        <a href="#pagethr" data-transition='slide'>3</a>
+      </div>
+    </div>
+
+    <div data-role="page" id="pagetwo" class="page">
+
+      <div data-role="header">
+        <h1>header</h1>
+      </div>
+      <div data-role="main" class="ui-content" id="main">
+        <p>hello,mobile! 2</p>
+      </div>
+      <div data-role="footer" class="ui-content">
+        <a href="#pageone" data-transition='slide' data-direction="reverse">1</a>
+        <a href="#pagetwo" data-transition='slide'>2</a>
+        <a href="#pagethr" data-transition='slide'>3</a>
+        <a href="#" data-rel="back">back</a>
+        <a href="#mypanel">cebianlan</a>
+      </div>
+
+      <div data-role="panel" id="mypanel" data-display="overlay" data-position="right">
+          <a href="#" data-rel="close">close</a>
+      </div>
+    </div>
+
+    <div data-role="page" id="pagethr" class="page">
+
+      <div data-role="header">
+        <h1>header</h1>
+      </div>
+      <div data-role="main" class="ui-content" id="main">
+        <p>hello,mobile! 3</p>
+      </div>
+      <div data-role="footer" class="ui-content">
+        <a href="#pageone" data-transition='slide'>1</a>
+        <a href="#pagetwo" data-transition='slide'>2</a>
+        <a href="#pagethr" data-transition='slide'>3</a>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $('.page').page({
+        disabled: true
+      });
+      $('.page').page({
+        theme:'b'
+      });
+      $('body').on('swipeleft swiperight', function(e, ui){
+        if(e.type == 'swiperight'){
+          //console.log($( ":mobile-pagecontainer"));
+
+          var prepage = '#' + $.mobile.activePage.prev('div[data-role="page"]')[0].id;
+          $.mobile.pageContainer.pagecontainer('change', prepage, {
+            transition: 'slide',
+            reverse: true
+          });
+        }
+
+        if(e.type == 'swipeleft'){
+          var nextpage = '#' + $.mobile.activePage.next('div[data-role="page"]')[0].id;
+          $.mobile.changePage(nextpage, {
+            transition: 'slide',
+            reverse: false
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
