@@ -77,6 +77,21 @@
       var h = window.innerHeight;
       document.getElementsByTagName('body')[0].style.height = h+'px';
       
+      function setFullScreen(el) {
+
+          if (el.requestFullscreen) {
+              el.requestFullscreen();
+          } else if (el.msRequestFullscreen) {
+              el.msRequestFullscreen();
+          }else if (el.mozRequestFullScreen) {
+              el.mozRequestFullScreen();
+          }else if (el.webkitRequestFullscreen) {
+              el.webkitRequestFullscreen();
+          }
+      }
+      
+      setFullScreen();
+      
       $('.page').page({
         disabled: true
       });
